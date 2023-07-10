@@ -1,18 +1,5 @@
 <title>Thông tin của tôi</title>
 xin chào đây là 1 ít thông tin liên hệ của tôii :))
-<?php
-$user_agent = $_SERVER['HTTP_USER_AGENT'];
-$is_mobile = preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo
-|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $user_agent);
-
-// Chỉ thực hiện chuyển hướng nếu chưa chuyển hướng
-if ($_SERVER['HTTP_HOST'] != 'm.bacdev.org' && $is_mobile) {
-    header('Location: http://m.bacdev.org');
-    exit;
-} elseif ($_SERVER['HTTP_HOST'] != 'www.bacdev.org' && !$is_mobile) {
-    header('Location: http://www.bacdev.org');
-    exit;
-}
 <br>
 - 👋 Hi, I’m @bacxyz
 <br>
