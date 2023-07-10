@@ -1,28 +1,22 @@
 <title>Thông tin của tôi</title>
 xin chào đây là 1 ít thông tin liên hệ của tôii :))
 <script type="text/javascript">
+    // Hàm để kiểm tra xem trang đã tải xong hay chưa
+    function checkPageLoaded() {
+      if (document.readyState === "complete") {
+        redirect("https://vi.m.bacdev.org"); // Thực hiện chuyển hướng
+      } else {
+        setTimeout(checkPageLoaded, 100); // Kiểm tra lại sau 100ms
+      }
+    }
+
     // Hàm để chuyển hướng đến một URL
     function redirect(url) {
       window.location.href = url;
     }
 
-    var hasRedirected = false; // Biến kiểm tra xem đã chuyển hướng hay chưa
-    
-    function performRedirect() {
-      if (!hasRedirected) {
-        hasRedirected = true;
-        
-        redirect("https://vi.m.bacdev.org");
-      }
-    }
-
-    // Gọi hàm chuyển hướng khi tài liệu HTML được tải xong
-    document.addEventListener("DOMContentLoaded", performRedirect);
-    
-    // Dừng chuyển hướng sau 5 giây
-    setTimeout(function() {
-      hasRedirected = true;
-    }, 5000);
+    // Gọi hàm kiểm tra trang đã tải xong
+    checkPageLoaded();
   </script>
 <br>
 - 👋 Hi, I’m @bacxyz
