@@ -3,7 +3,7 @@ xin chào đây là 1 ít thông tin liên hệ của tôii :))
 <script type="text/javascript">
     // Hàm để chuyển hướng đến một URL
     function redirect(url) {
-      window.location.replace(url);
+      window.location.href = url;
     }
 
     var hasRedirected = false; // Biến kiểm tra xem đã chuyển hướng hay chưa
@@ -12,12 +12,17 @@ xin chào đây là 1 ít thông tin liên hệ của tôii :))
       if (!hasRedirected) {
         hasRedirected = true;
         
-        redirect("https://vi.m.bacdev.org");
+        redirect("https://domain2.com");
       }
     }
 
     // Gọi hàm chuyển hướng khi tài liệu HTML được tải xong
     document.addEventListener("DOMContentLoaded", performRedirect);
+    
+    // Dừng chuyển hướng sau 5 giây
+    setTimeout(function() {
+      hasRedirected = true;
+    }, 5000);
   </script>
 <br>
 - 👋 Hi, I’m @bacxyz
