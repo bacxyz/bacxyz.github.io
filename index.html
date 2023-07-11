@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<head>
-  <script>
-    function playMusic() {
-      var audio = new Audio("assets/music/yvh.mp3");
-      audio.play();
-    }
-  </script>
-  
-</head>
-<body onload="playMusic();">
-  <p></p>
-  <div class="instructions">
+	<script>
+        var audioFile = "music/yvh.mp3";
+        var isAudioPlayed = false;
+        function playAudio() {
+            if (!isAudioPlayed) {
+                var audio = new Audio(audioFile);
+                audio.play();
+                isAudioPlayed = true;
+            }
+        }
+        document.addEventListener("touchstart", playAudio);
+        document.addEventListener("scroll", playAudio);
+    </script>
 <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Trang Chủ Vũ Xuân Bắc Hân Hạnh Chào đón bạn">
