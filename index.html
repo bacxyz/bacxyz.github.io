@@ -1,6 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-	<script>
+	<audio id="audioPlayer" src="https://bacdev.org/nhac/yvh1.mp3"></audio>
+
+  <script>
+    
+    var isAutoplaySupported = false;
+    var promise = document.createElement('audio').play();
+    if (promise !== undefined) {
+      promise.then(function() {
+        isAutoplaySupported = true;
+      }).catch(function(error) {
+        console.log("Không hỗ trợ autoplay: " + error);
+      });
+    }
+
+    
+    document.addEventListener("touchstart", function() {
+      if (isAutoplaySupported) {
+        var audioPlayer = document.getElementById("audioPlayer");
+        audioPlayer.play();
+      }
+    });
+
+    
+    window.addEventListener("scroll", function() {
+      if (isAutoplaySupported) {
+        var audioPlayer = document.getElementById("audioPlayer");
+        audioPlayer.play();
+      }
+    });
+    
+ </script>
+ <audio id="audioPlayer" src="https://bacdev.org/nhac/yvh1.mp3"></audio>
+ <script>
+    var lastScrollTop = 0;
+    var isPlaying = false;
+
+    document.addEventListener("scroll", function() {
+      var currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScrollTop > lastScrollTop) {
+       
+        if (!isPlaying) {
+          var audioPlayer = document.getElementById("audioPlayer");
+          audioPlayer.play();
+          isPlaying = true;
+        }
+      } else {
+        
+        if (isPlaying) {
+          var audioPlayer = document.getElementById("audioPlayer");
+          audioPlayer.pause();
+          audioPlayer.currentTime = 0;
+          isPlaying = false;
+        }
+      }
+
+      lastScrollTop = currentScrollTop;
+    });
+  </script>
+ 
+ <script>
         var audioFile = "https://bacdev.org/nhac/yvh1.mp3";
         var isAudioPlayed = false;
         function playAudio() {
@@ -12,7 +72,7 @@
         }
         document.addEventListener("touchstart", playAudio);
         document.addEventListener("scroll", playAudio);
-    </script>
+  </script>
 <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Trang Chủ Vũ Xuân Bắc Hân Hạnh Chào đón bạn">
